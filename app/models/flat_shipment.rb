@@ -1,0 +1,2 @@
+class FlatShipment < ApplicationRecord
+end

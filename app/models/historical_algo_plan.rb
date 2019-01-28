@@ -1,0 +1,2 @@
+class HistoricalAlgoPlan < ApplicationRecord
+end
