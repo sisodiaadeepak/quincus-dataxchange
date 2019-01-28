@@ -5,20 +5,16 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 2.6.0
 
-* System dependencies
+* Rails version : 5.2.2
 
-* Configuration
+* System dependencies : linux
 
-* Database creation
+* Configuration : none
 
-* Database initialization
+* Database creation: 'rails db:create'
 
-* How to run the test suite
+* Database initialization : 'rails db:migrate'
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Heroku_url : https://quincus-dataxchange.herokuapp.com/
