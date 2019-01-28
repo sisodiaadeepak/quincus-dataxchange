@@ -83,6 +83,8 @@ test:
 #
 production:
   <<: *default
-  database: quincus_dataxchange_production
-  username: quincus_dataxchange
-  password: <%= ENV['QUINCUS_DATAXCHANGE_DATABASE_PASSWORD'] %>
+  host: ec2-54-235-67-106.compute-1.amazonaws.com
+  post: 5432
+  database: d82n320kh09lo2
+  username: ibxipkubsulpop
+  password: 43f77fffcd8fa7dc3c83fb127e8228c5a66bc5d585ad5bfd8c3155adb967a9f2
