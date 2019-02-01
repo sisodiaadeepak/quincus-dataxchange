@@ -9,4 +9,5 @@ class Organisation < ApplicationRecord
 	has_many :shipments
 	has_many :boxes
 	has_many :flatshipments
+	has_many :users
 end
