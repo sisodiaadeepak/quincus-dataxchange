@@ -25,6 +25,8 @@ module QuincusDataxchange
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
+    config.autoload_paths << Rails.root.join('lib')
+    config.api_only = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
