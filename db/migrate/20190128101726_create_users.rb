@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.date :quota_reset_date
       t.date :quota_last_accessed_date
       t.integer :quota_usage_count
+      t.string :email
+      t.string :password_digest
       t.timestamps
     end
   end
