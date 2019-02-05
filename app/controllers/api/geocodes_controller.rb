@@ -25,8 +25,14 @@ class Api::GeocodesController < ApplicationController
 					FlatShipment.create!(flatshipment_new_params)
 				end
 				render status: 200, json: {
-					    message: "success",
-					    batch_id: "#{@batch_id}"
+					    batch_id: "#{@batch_id}",
+					    organisation_id: "#{current_user.organisation.id}",
+					    status_code: "started",
+					    addresses: [],
+					    geocode: nil,
+					    geocode_errors: nil,
+					    date_created: "#{FlatShipment.last.created_at.strftime(( "%Y-%m-%dT%H:%M:%S%z"))}",
+					    date_updated: "#{FlatShipment.last.updated_at.strftime(( "%Y-%m-%dT%H:%M:%S%z"))}"
 					  }.to_json
 			else
 				render  json: {
@@ -46,10 +52,16 @@ class Api::GeocodesController < ApplicationController
 		begin
 			if params[:batch_id].present?
 				@flatshipments = FlatShipment.where(batch_id: params[:batch_id])
+				
 				render status: 200, json: {
-					    message: "success",
-					    flatshipments: "#{@flatshipments.to_json}"
-					  }.to_json
+					    batch_id: "#{params[:batch_id]}",
+					    organisation:  "#{current_user.organisation.id}",
+					    status_code: "complete",
+					    addresses: "#{@flatshipments.to_json}",
+					    geocode: "#{@flatshipments.to_json}",
+					    date_created: "#{@flatshipments.last.created_at.strftime(( "%Y-%m-%dT%H:%M:%S%z"))}",
+					    date_updated: "#{@flatshipments.last.updated_at.strftime(( "%Y-%m-%dT%H:%M:%S%z"))}"
+					  }
 			end
 		rescue Exception => e
 			render json: {
