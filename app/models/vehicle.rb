@@ -1,7 +1,7 @@
 class Vehicle < ApplicationRecord
 	belongs_to :organisation
 	belongs_to :job
-	#has_many :flatshipments
+	has_many :flatshipments
 	
 	validates :remote_id, :uniqueness => true
 end
