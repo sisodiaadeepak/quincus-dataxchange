@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 root to: 'quincus_dataxchanges#index'
 
 post 'api/geocodes/geocode_file', to: 'api/geocodes#geocode_file'
+get 'api/geocodes/geocode_file/:batch_id', to: 'api/geocodes#get_flatshipment'
 
 get 'get_users', to: 'quincus_dataxchanges#get_users'
 post 'authenticate', to: 'user_authentication#authenticate'
