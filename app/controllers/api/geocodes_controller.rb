@@ -5,7 +5,7 @@ class Api::GeocodesController < ApplicationController
 			if params[:geocode_file].present?
 				# Read Csv file 
 				require 'csv'
-				csv_text = File.read("#{params[:geocode_file]}")
+				csv_text = params[:geocode_file].tempfile
 				csv = CSV.parse(csv_text, :headers => true)
 			
 				csv.each do |row|
