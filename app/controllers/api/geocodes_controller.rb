@@ -70,4 +70,26 @@ class Api::GeocodesController < ApplicationController
 		end
 	end
 
+
+	def algo_job_control_tower
+		begin
+			@vehicles = Vehicle.all
+			new_hash = []
+			@vehicles.each do |vehicle|
+				@driver_id = vehicle.driver.id
+				@flatshipments = FlatShipment.where(driver_id: @driver_id)
+				data = {vehicleId: vehicle.id, driverId: @driver_id, lat: "28.12312", lon: "77.3244", ships: ActiveSupport::JSON.decode(@flatshipments.to_json)}
+				new_hash << data
+			end
+			render status: 200, json: {
+							cost: 11.121122,
+						    routes: "#{new_hash}"
+						  }
+		rescue Exception => e
+			render json: {
+						message: "#{e}",
+					}.to_json
+		end		
+	end
+
 end
